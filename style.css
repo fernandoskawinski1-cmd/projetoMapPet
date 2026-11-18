@@ -172,12 +172,12 @@ body {
   gap: 24px;
   padding: 40px 6vw 60px;
   overflow: hidden;
-  background-color: var(--amarelo);
+  background-color: var(--amarelo); 
   background-image:
-    radial-gradient(circle at 12% 20%, rgba(253, 129, 40, 0.12) 0 90px, transparent 91px),
-    radial-gradient(circle at 40% 85%, rgba(253, 129, 40, 0.12) 0 120px, transparent 121px),
-    radial-gradient(circle at 75% 10%, rgba(253, 129, 40, 0.10) 0 110px, transparent 111px),
-    radial-gradient(circle at 95% 70%, rgba(253, 129, 40, 0.12) 0 100px, transparent 101px);
+    linear-gradient(rgba(255, 214, 113, 0.85), rgba(255, 214, 113, 0.25)),  /* camada amarela, na frente */
+    url("img/Textura2.png");  
+    
+  
 }
 
 .hero-texto {
