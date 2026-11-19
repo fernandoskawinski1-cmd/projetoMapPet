@@ -321,3 +321,32 @@ body {
     height: 36px;
   }
 }
+
+.Sobre-mapa {
+  position: relative;
+  background-color: #33BEB6;   /* cor exata solicitada, usada como fallback */
+  background-image: url("img/Textura.png");
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: soft-light; /* suaviza a textura sobre a cor */
+  min-height: 300px;
+  padding: 40px 30px;
+  border-radius: 12px;
+  overflow: hidden;
+  color: #ffffff;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+/* Camada turquesa escura por cima, em vez de preta */
+.Sobre-mapa::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(31, 122, 117, 0.8); /* #1F7A75 com 80% de opacidade */
+  z-index: 0;
+}
+
+.Sobre-mapa > * {
+  position: relative;
+  z-index: 1;
+}
