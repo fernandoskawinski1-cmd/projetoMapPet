@@ -30,8 +30,7 @@ body {
   overflow-x: hidden;
 }
 
-/* IMPORTANTE: faz o atributo hidden esconder o elemento mesmo que
-   outra regra de display (como display: flex do .menu) tente mostrá-lo */
+/* Faz o atributo hidden esconder o elemento mesmo com outro display definido */
 [hidden] {
   display: none !important;
 }
@@ -53,6 +52,12 @@ body {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
+.header-esquerda {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
 .menu-btn {
   background: none;
   border: none;
@@ -72,8 +77,7 @@ body {
   transition: transform 0.25s ease, opacity 0.25s ease;
 }
 
-/* Animação do ícone "X" quando o menu está aberto.
-   O JavaScript deve adicionar a classe "aberto" no #menu-btn */
+/* Ícone "X" quando o menu está aberto. O JavaScript adiciona a classe "aberto" no #menu-btn */
 .menu-btn.aberto span:nth-child(1) { transform: translateY(10px) rotate(45deg); }
 .menu-btn.aberto span:nth-child(2) { opacity: 0; }
 .menu-btn.aberto span:nth-child(3) { transform: translateY(-10px) rotate(-45deg); }
@@ -127,9 +131,7 @@ body {
   height: 20px;
 }
 
-/* ===== MENU LATERAL (MOBILE) =====
-   Só o <nav id="menu"> usa a classe .menu.
-   O JavaScript mostra/esconde com o atributo hidden. */
+/* ===== MENU LATERAL (MOBILE) ===== */
 .menu {
   position: fixed;
   top: 0;
@@ -160,7 +162,7 @@ body {
   background: var(--amarelo);
 }
 
-/* Fundo escuro atrás do menu (clique nele fecha o menu) */
+/* Fundo escuro atrás do menu (clicar nele fecha o menu) */
 .menu-fundo {
   position: fixed;
   inset: 0;
@@ -173,19 +175,28 @@ body {
   to   { transform: translateX(0); }
 }
 
-/* ===== MENU DO RODAPÉ =====
-   Lista simples dentro do footer. Não é o menu lateral,
-   por isso NÃO usa position fixed. */
+/* ===== MENU DO RODAPÉ ===== */
 .menu-rodape {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
   gap: 16px;
   margin: 24px 0;
 }
 
 .menu-rodape p {
   font-weight: 600;
+}
+
+.menu-rodape a {
+  color: var(--teal-escuro);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.menu-rodape a:hover {
+  text-decoration: underline;
 }
 
 /* ===== HERO ===== */
@@ -200,7 +211,7 @@ body {
   overflow: hidden;
   background-color: var(--amarelo);
   background-image:
-    linear-gradient(rgba(255, 214, 113, 0.85), rgba(255, 214, 113, 0.25)),  /* camada amarela, na frente */
+    linear-gradient(rgba(255, 214, 113, 0.85), rgba(255, 214, 113, 0.25)),
     url("img/Textura2.png");
 }
 
@@ -223,7 +234,11 @@ body {
   font-weight: 600;
   color: var(--teal-escuro);
   line-height: 1.3;
-  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.35);
+  text-shadow:
+  0 0 2px rgba(0, 0, 0, 0.6),
+  0 1px 0 rgba(0, 0, 0, 0.5),
+  0 2px 4px rgba(0, 0, 0, 0.4);
+
 }
 
 .botoes {
@@ -268,70 +283,166 @@ body {
   border-color: var(--laranja-escuro);
 }
 
-/* ===== IMAGEM E SOBREPOSIÇÃO ===== */
 .hero-imagem {
   position: relative;
+  z-index: 1;
   width: 42%;
   max-width: 480px;
-  z-index: 1;
 }
 
-/* Container de referência para a imagem de cima */
-.sobreposicao {
-  position: relative;
-  width: 100%;
-}
-
-.imagem-base {
+.hero-imagem img {
   display: block;
   width: 100%;
   height: auto;
 }
 
-/* Imagem de cima: sai do fluxo e se posiciona sobre a base */
-.imagem-sobre {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  width: 80px;
+/* ===== IMAGENS ===== */
+.imagem-base {
+  display: block;
+  width: 25%;
   height: auto;
-  z-index: 2;
 }
 
 /* ===== SOBRE ===== */
+/* ===== SOBRE (versão única) ===== */
+
+/* Caixa turquesa com textura. Não há camada ::before. */
 .Sobre-mapa {
   position: relative;
-  background-color: #33BEB6;   /* cor exata solicitada, usada como fallback */
-  background-image: url("img/Textura.png");
-  background-size: cover;
-  background-position: center;
-  background-blend-mode: soft-light; /* suaviza a textura sobre a cor */
-  min-height: 300px;
-  padding: 40px 30px;
+  display: grid;
+  grid-template-columns: 40% 1fr;   /* imagem à esquerda, texto à direita */
+  align-items: end;                 /* imagem encostada na base da caixa */
+  gap: 40px;
+  margin: 24px 20px 40px;
+  padding: 48px 48px 0;
   border-radius: 12px;
   overflow: hidden;
-  color: #ffffff;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+  color: #FFFFFF;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05)),
+    url("img/Textura.png") center / cover,
+    #33BEB6; 
 }
 
-/* Camada turquesa escura por cima, em vez de preta */
-.Sobre-mapa::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(31, 122, 117, 0.8); /* #1F7A75 com 80% de opacidade */
-  z-index: 0;
+/* Imagem: limita a altura para a caixa não crescer */
+.sobre-imagem {
+  justify-self: end;
 }
 
-.Sobre-mapa > * {
-  position: relative;
-  z-index: 1;
+.sobre-imagem img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 340px;   /* diminua se quiser a caixa menor */
 }
 
-/* ===== FAIXA INFERIOR ===== */
-.faixa {
-  height: 14px;
+/* Texto */
+.sobre-texto {
+  padding-bottom: 48px;
+}
+
+.sobre-texto h2 {
+  text-align: center;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-shadow: 0 2px 2px rgba(0, 0, 0, 0.35);
+}
+
+.paragrafo-mapa {
+  font-size: clamp(1rem, 1.6vw, 1.2rem);
+  font-weight: 600;
+  line-height: 1.6;
+  color: #FFFFFF;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+
+/* Celular: imagem em cima e texto embaixo */
+@media (max-width: 720px) {
+  .Sobre-mapa {
+    grid-template-columns: 1fr;
+    margin: 16px 12px 30px;
+    padding: 32px 20px 0;
+    gap: 24px;
+  }
+
+  .sobre-imagem {
+    justify-self: center;
+  }
+
+  .sobre-imagem img {
+    max-height: 240px;
+  }
+
+  .sobre-texto {
+    padding-bottom: 32px;
+  }
+}
+
+  /* Textura com uma camada turquesa semitransparente por cima, tudo no próprio background */
+  background:
+    linear-gradient(rgba(31, 122, 117, 0.6), rgba(31, 122, 117, 0.6)),
+    url("img/Textura.png") center / cover,
+    #33BEB6;
+}
+
+/* Coluna da imagem */
+.sobre-imagem img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Coluna do texto */
+.sobre-texto {
+  padding-bottom: 48px;
+}
+
+.sobre-texto h2 {
+  text-align: center;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-shadow: 0 2px 2px rgba(0, 0, 0, 0.35);
+}
+
+.paragrafo-mapa {
+  font-size: clamp(1rem, 1.6vw, 1.2rem);
+  font-weight: 600;
+  line-height: 1.6;
+  color: #FFFFFF;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+
+/* Celular: imagem em cima e texto embaixo */
+@media (max-width: 720px) {
+  .Sobre-mapa {
+    grid-template-columns: 1fr;
+    margin: 16px 12px 30px;
+    padding: 32px 20px 0;
+    gap: 24px;
+  }
+
+  .sobre-imagem {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .sobre-texto {
+    padding-bottom: 32px;
+  }
+}
+/* ===== RODAPÉ ===== */
+.rodape {
   background: var(--teal);
+  color: var(--branco);
+  text-align: center;
+}
+
+.rodape .menu-rodape p,
+.rodape .menu-rodape a {
+  color: var(--branco);
 }
 
 /* ===== RESPONSIVO ===== */
@@ -355,10 +466,6 @@ body {
     margin-top: 20px;
   }
 
-  .imagem-sobre {
-    width: 60px;
-  }
-
   .header {
     padding: 10px 16px;
   }
@@ -374,4 +481,41 @@ body {
   .logo-img {
     height: 36px;
   }
+
+  /* Celular: imagem em cima e texto embaixo */
+  .Sobre-mapa {
+    flex-direction: column;
+    align-items: center;
+    margin: 16px 12px 30px;
+    padding: 30px 20px 0;
+  }
+
+  .sobre-imagem {
+    flex: none;
+    width: 80%;
+  }
+
+  .sobre-texto {
+    padding-bottom: 30px;
+  }
+}
+
+/* ===== AJUSTE DE ALTURA DA SEÇÃO SOBRE ===== */
+.Sobre-mapa {
+  min-height: 0;
+  height: auto;
+  align-items: end;
+}
+
+.sobre-imagem img {
+  display: block;
+  width: auto;          /* deixa a largura proporcional à altura */
+  max-width: 100%;
+  max-height: 340px;    /* limite de altura da imagem; diminua se quiser a caixa menor */
+  margin: 0 auto;
+  object-fit: contain;
+}
+
+.sobre-texto {
+  align-self: center;
 }
