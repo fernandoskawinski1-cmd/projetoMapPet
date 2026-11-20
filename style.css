@@ -301,6 +301,8 @@ body {
   display: block;
   width: 25%;
   height: auto;
+  position: relative;
+  padding-left: 10%; 
 }
 
 /* ===== SOBRE ===== */
@@ -325,8 +327,13 @@ body {
 }
 
 /* Imagem: limita a altura para a caixa não crescer */
+
+
 .sobre-imagem {
-  justify-self: end;
+  position: absolute;
+  left: 40px;                       /* distância da borda esquerda da caixa */
+  bottom: 0;                        /* encostada na base */
+  width: 35%;
 }
 
 .sobre-imagem img {
