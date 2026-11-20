@@ -30,6 +30,8 @@ body {
   overflow-x: hidden;
 }
 
+/* IMPORTANTE: faz o atributo hidden esconder o elemento mesmo que
+   outra regra de display (como display: flex do .menu) tente mostrá-lo */
 [hidden] {
   display: none !important;
 }
@@ -70,6 +72,8 @@ body {
   transition: transform 0.25s ease, opacity 0.25s ease;
 }
 
+/* Animação do ícone "X" quando o menu está aberto.
+   O JavaScript deve adicionar a classe "aberto" no #menu-btn */
 .menu-btn.aberto span:nth-child(1) { transform: translateY(10px) rotate(45deg); }
 .menu-btn.aberto span:nth-child(2) { opacity: 0; }
 .menu-btn.aberto span:nth-child(3) { transform: translateY(-10px) rotate(-45deg); }
@@ -84,6 +88,10 @@ body {
   display: flex;
   align-items: center;
   gap: 24px;
+}
+
+.header-links .fa-hand-holding-heart {
+  color: var(--branco);
 }
 
 .link-apoie {
@@ -119,7 +127,9 @@ body {
   height: 20px;
 }
 
-/* ===== MENU MOBILE ===== */
+/* ===== MENU LATERAL (MOBILE) =====
+   Só o <nav id="menu"> usa a classe .menu.
+   O JavaScript mostra/esconde com o atributo hidden. */
 .menu {
   position: fixed;
   top: 0;
@@ -150,6 +160,7 @@ body {
   background: var(--amarelo);
 }
 
+/* Fundo escuro atrás do menu (clique nele fecha o menu) */
 .menu-fundo {
   position: fixed;
   inset: 0;
@@ -162,6 +173,21 @@ body {
   to   { transform: translateX(0); }
 }
 
+/* ===== MENU DO RODAPÉ =====
+   Lista simples dentro do footer. Não é o menu lateral,
+   por isso NÃO usa position fixed. */
+.menu-rodape {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.menu-rodape p {
+  font-weight: 600;
+}
+
 /* ===== HERO ===== */
 .hero {
   position: relative;
@@ -172,12 +198,10 @@ body {
   gap: 24px;
   padding: 40px 6vw 60px;
   overflow: hidden;
-  background-color: var(--amarelo); 
+  background-color: var(--amarelo);
   background-image:
     linear-gradient(rgba(255, 214, 113, 0.85), rgba(255, 214, 113, 0.25)),  /* camada amarela, na frente */
-    url("img/Textura2.png");  
-    
-  
+    url("img/Textura2.png");
 }
 
 .hero-texto {
@@ -274,6 +298,36 @@ body {
   z-index: 2;
 }
 
+/* ===== SOBRE ===== */
+.Sobre-mapa {
+  position: relative;
+  background-color: #33BEB6;   /* cor exata solicitada, usada como fallback */
+  background-image: url("img/Textura.png");
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: soft-light; /* suaviza a textura sobre a cor */
+  min-height: 300px;
+  padding: 40px 30px;
+  border-radius: 12px;
+  overflow: hidden;
+  color: #ffffff;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+/* Camada turquesa escura por cima, em vez de preta */
+.Sobre-mapa::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(31, 122, 117, 0.8); /* #1F7A75 com 80% de opacidade */
+  z-index: 0;
+}
+
+.Sobre-mapa > * {
+  position: relative;
+  z-index: 1;
+}
+
 /* ===== FAIXA INFERIOR ===== */
 .faixa {
   height: 14px;
@@ -320,33 +374,4 @@ body {
   .logo-img {
     height: 36px;
   }
-}
-
-.Sobre-mapa {
-  position: relative;
-  background-color: #33BEB6;   /* cor exata solicitada, usada como fallback */
-  background-image: url("img/Textura.png");
-  background-size: cover;
-  background-position: center;
-  background-blend-mode: soft-light; /* suaviza a textura sobre a cor */
-  min-height: 300px;
-  padding: 40px 30px;
-  border-radius: 12px;
-  overflow: hidden;
-  color: #ffffff;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
-}
-
-/* Camada turquesa escura por cima, em vez de preta */
-.Sobre-mapa::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(31, 122, 117, 0.8); /* #1F7A75 com 80% de opacidade */
-  z-index: 0;
-}
-
-.Sobre-mapa > * {
-  position: relative;
-  z-index: 1;
 }
