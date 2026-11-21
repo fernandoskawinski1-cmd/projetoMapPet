@@ -526,3 +526,7 @@ body {
 .sobre-texto {
   align-self: center;
 }
+
+.copyright {
+  text-align:center
+}
