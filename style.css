@@ -526,3 +526,24 @@ body {
 .sobre-texto {
   align-self: center;
 }
+
+.copyright {
+  text-align:center
+}
+
+.redes-sociais {
+  text-align:right
+}
+
+.logo-rodape {
+  grid-area: logo;
+  justify-self: start;  /* encosta na borda esquerda da célula */
+  width: 300px;
+  height: auto;
+  margin-top: 50px
+  ;
+
+.redes-sociais {
+  grid-area: redes;
+  justify-self: end;    /* empurra o bloco para a direita */
+}
