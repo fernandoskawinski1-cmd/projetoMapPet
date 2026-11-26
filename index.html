@@ -50,57 +50,76 @@
     </nav>
     <div class="menu-fundo" id="menu-fundo" hidden></div>
 
-
     <!--=====TESTE PERFIL====-->
-    <style>
-      .botao-cadastro {
-      display: inline-block;
-      padding: 10px 20px;
-      color: white;
-      cursor: pointer;
-      border-radius: 5px;
-      list-style: none; 
-      }
-   </style>
+    <section class="cadastro" id="perfil">
+      <div class="cadastro-perfil">
+        <style>
+          .botao-cadastro {
+          display: inline-block;
+          padding: 10px 20px;
+          color: white;
+          cursor: pointer;
+          border-radius: 5px;
+          list-style: none;}
+        </style>
 
-  <details>
-    <summary class="botao-cadastro">Perfil<img src="img/btn entrar.png" alt="Perfil" class="icone-perfil"></summary>
-    <background style="background-color: rgba(0, 49, 54, 100); position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;"></background>
-    <form style="margin-top: 15px; border: 1px solid #ccc; padding: 15px;">
-      
-      <h3>Bem vindo a nossa família!</h3>
-      <color style="color: #33BEB6; font-weight: bold">
-      <p>Informações para contato:</p></color>
-      
-      <color style="color: #000000; font-weight: bold">
-        <p><strong>Nome: </strong></p>
-        <input type="text" placeholder="Digite seu nome completo" required><br><br>
-        
-        <p><strong>Aniversário:</strong></p>
-        <input type="date" placeholder="01/01/11" required><br><br>
-        
-        <p><strong>Endereço:</strong></p>
-        <input type="text" placeholder="Endereço completo" required><br><br>
-        
-        <p><strong>E-mail:</strong></p>
-        <input type="email" placeholder="Digite seu e-mail" required><br><br>
-        
-        <p><strong>Telefone:</strong></p>
-        <input type="text" placeholder="+55 (12) 34567-8900" required><br><br>
+        <details>
+          <summary class="botao-cadastro">Perfil<img src="img/btn entrar.png" alt="Perfil" class="icone-perfil"></summary>
+          <!--<background style="background-color: rgba(255, 214, 113, 100); position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;"></background>-->
+          <form style="margin-top: 15px; border: 1px solid #ccc; padding: 15px;">
+            
+            <h3>Bem vindo a nossa família!</h3>
+            <color style="color: #33BEB6; font-weight: bold">
+            <p>Informações para contato:</p></color>
+            
+            <color style="color: #000000; font-weight: bold">
+              <p><strong>Nome: </strong></p>
+              <input type="text" placeholder="Digite seu nome completo" required><br><br>
+              
+              <p><strong>Endereço:</strong></p>
+              <input type="text" placeholder="Endereço completo" required><br><br>
+              
+              <p><strong>E-mail:</strong></p>
+              <input type="email" placeholder="Digite seu e-mail" required><br><br>
+              
+              <p><strong>Telefone:</strong></p>
+              <input type="text" placeholder="+55 (12) 34567-8900" required><br><br>
 
-        <form action="/enviar" method="POST">
-        <div>
-          <!-- Caixa de seleção obrigatória -->
-          <input type="checkbox" id="aceite-termos" name="termos" required>
-          
-          <label for="aceite-termos">
-            Desejo receber alertas locais de animais de estimação encontrados e perdidos</label>
-        </div>
-      </color>
-      <button type="submit" style="background-color: #33BEB6; color: white; border: none; padding: 10px 20px; cursor: pointer; border-radius: 5px;">Cadastrar</button>
-    </form>
-    <img src="img/imgCGcadastro.png">
-  </details>
+              <form action="/enviar" method="POST">
+              <div>
+                <!-- Caixa de seleção obrigatória -->
+                <input type="checkbox" id="aceite-termos" name="termos" required>
+                
+                <label for="aceite-termos">
+                  Desejo receber alertas locais de animais de estimação encontrados e perdidos</label>
+                <br><br> 
+              </div>
+            </color>
+            <button type="submit" style="background-color: #33BEB6; color: white; border: none; padding: 10px 20px; cursor: pointer; border-radius: 5px;">Continuar</button>
+          </form>
+          <img src="img/imgCGcadastro.png">
+        </details>
+      </div>
+
+      <!--====FICHA====-->
+
+      <div class="ficha">
+
+        <h2 style="color: #fd8128"><strong>Crie seu anúncio para buscas.</h2></strong>
+        <p>Insira informações do animal para começarmos a instantaneamente a espalhar o anúncio por sua comunidade.</p>
+
+        <h3>Situação</h3>
+        <hr>
+        <p>Procurando pet</p>
+        <hr>
+        <p>Procurando tutor</p>
+        <hr>
+        <p>Para adoção</p>
+        <hr>
+
+
+      </div>
+    </section>
 <!--=====TESTE PERFIL====-->
 
 
