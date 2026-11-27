@@ -26,7 +26,7 @@ a { color: inherit; }
 
 /* ===== 3. CABEÇALHO ===== */
 .header {
-  position: sticky; top: 0; z-index: 10;
+  position: sticky; top: 0; z-index: 30;
   background: var(--teal);
   display: flex; align-items: center; justify-content: space-between;
   padding: 10px 24px; min-height: 65px;
@@ -43,6 +43,7 @@ a { color: inherit; }
   background: var(--branco); border-radius: 2px;
   transition: transform .25s ease, opacity .25s ease;
 }
+.menu-btn:focus-visible { outline: 3px solid var(--branco); outline-offset: 3px; border-radius: 6px; }
 .menu-btn.aberto span:nth-child(1) { transform: translateY(10px) rotate(45deg); }
 .menu-btn.aberto span:nth-child(2) { opacity: 0; }
 .menu-btn.aberto span:nth-child(3) { transform: translateY(-10px) rotate(-45deg); }
@@ -59,10 +60,10 @@ a { color: inherit; }
 
 /* ===== 4. MENU LATERAL ===== */
 .menu {
-  position: fixed; top: 0; left: 0; z-index: 20;
-  height: 100%; width: 260px; max-width: 80%;
+  position: fixed; top: 65px; left: 0; z-index: 20;   /* começa logo abaixo do cabeçalho */
+  height: calc(100% - 65px); width: 260px; max-width: 80%;
   background: var(--branco);
-  padding: 90px 24px 24px;
+  padding: 24px 24px 24px;
   display: flex; flex-direction: column; gap: 8px;
   box-shadow: 4px 0 16px rgba(0,0,0,.2);
   animation: deslizar .25s ease;
@@ -72,7 +73,9 @@ a { color: inherit; }
   font-size: 1.15rem; font-weight: 600;
   padding: 12px 14px; border-radius: 10px;
 }
-.menu a:hover { background: var(--amarelo); }
+.menu a { transition: background .15s ease; }
+.menu a:hover,
+.menu a:focus-visible { background: var(--amarelo); outline: none; }
 .menu-fundo { position: fixed; inset: 0; z-index: 15; background: rgba(0,0,0,.35); }
 @keyframes deslizar { from { transform: translateX(-100%); } to { transform: none; } }
 
@@ -143,7 +146,13 @@ a { color: inherit; }
   margin-bottom: 16px;
 }
 .divulgados h2 { font-size: 1.6rem; }
-.ver-mais { font-size: .85rem; color: var(--teal-escuro); }
+.ver-mais {
+  font-size: .9rem; font-weight: 600;
+  color: var(--teal-escuro); text-decoration: underline;
+  padding: 2px 4px; border-radius: 4px;
+}
+.ver-mais:hover { color: var(--laranja-escuro); }
+.ver-mais:focus-visible { outline: 3px solid var(--teal-escuro); outline-offset: 3px; }
 
 .carrossel { width: 100%; }
 .swiper-slide.card-pet {
