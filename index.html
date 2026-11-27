@@ -1,455 +1,433 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="MapPet: ajudamos você a encontrar seu pet perdido e a resgatar animais em todo o Brasil.">
-    <title>MapPet - Ajudando você a encontrar seu amigo de quatro patas</title>
-    <link rel="icon" href="img/icone-pet.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-  </head>
-  <body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MapPet: ajudamos você a encontrar seu pet perdido e a resgatar animais em todo o Brasil.">
+  <title>MapPet - Ajudando você a encontrar seu amigo de quatro patas</title>
+  <link rel="icon" href="img/icone-pet.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Swiper ANTES do seu CSS, para o seu style.css conseguir sobrescrever -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="anuncio.css">
+</head>
+<body>
 
-    <!-- ===== CABEÇALHO ===== -->
-    <header class="header" id="topo">
-      <button class="menu-btn" id="menu-btn" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+  <!-- ===== CABEÇALHO ===== -->
+  <header class="header" id="topo">
+    <button class="menu-btn" id="menu-btn" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
+      <span></span><span></span><span></span>
+    </button>
 
-      <a href="index.html" class="logo" aria-label="MapPet - página inicial">
-        <img src="img/logomapapet .png" alt="MapPet" class="logo-img">
-      </a>
+    <a href="index.html" class="logo" aria-label="MapPet - página inicial">
+      <img src="img/logomapapet .png" alt="MapPet" class="logo-img">
+    </a>
 
-     <div class="header-links">
-        <i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i>
-        <a href="#apoie" class="link-apoie">Apoie</a>
-        <a href="#perfil" class="link-perfil">
-          Perfil
-          <span class="perfil-icone" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="8" r="3"/>
-              <path d="M5 21v-2a5 5 0 0 1 5-5h4a5 5 0 0 1 5 5v2"/>
-            </svg>
-          </span>
-        </a>
-      </div>
-    </header> 
+    <div class="header-links">
+      <a href="#apoie" class="link-apoie"><i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i> Apoie</a>
+    </div>
+  </header>
 
-  
-    <!-- ===== MENU LATERAL (MOBILE) ===== -->
-    <nav class="menu" id="menu" aria-label="Menu principal" hidden>
-      <a href="index.html">Início</a>
-      <a href="#perdi">Perdi meu pet</a>
-      <a href="#encontrei">Encontrei um pet</a>
-      <a href="#apoie">Apoie</a>
-      <a href="#perfil">Perfil</a>
-    </nav>
-    <div class="menu-fundo" id="menu-fundo" hidden></div>
+  <!-- ===== MENU LATERAL ===== -->
+  <nav class="menu" id="menu" aria-label="Menu principal" hidden>
+    <a href="index.html">Início</a>
+    <a href="#perdi">Perdi meu pet</a>
+    <a href="#encontrei">Encontrei um pet</a>
+    <a href="#divulgados">Pets divulgados</a>
+    <a href="#patrocinadores">Patrocinadores</a>
+    <a href="#denuncia">Denúncia</a>
+  </nav>
+  <div class="menu-fundo" id="menu-fundo" hidden></div>
 
-    <!--=====TESTE PERFIL====-->
-    <section class="cadastro" id="perfil">
-      <div class="cadastro-perfil">
-        <style>
-          .botao-cadastro {
-          display: inline-block;
-          padding: 10px 20px;
-          color: white;
-          cursor: pointer;
-          border-radius: 5px;
-          list-style: none;}
-        </style>
+  <main>
 
-        <details>
-          <summary class="botao-cadastro">Perfil<img src="img/btn entrar.png" alt="Perfil" class="icone-perfil"></summary>
-          <!--<background style="background-color: rgba(255, 214, 113, 100); position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;"></background>-->
-          <form style="margin-top: 15px; border: 1px solid #ccc; padding: 15px;">
-            
-            <h3>Bem vindo a nossa família!</h3>
-            <color style="color: #33BEB6; font-weight: bold">
-            <p>Informações para contato:</p></color>
-            
-            <color style="color: #000000; font-weight: bold">
-              <p><strong>Nome: </strong></p>
-              <input type="text" placeholder="Digite seu nome completo" required><br><br>
-              
-              <p><strong>Endereço:</strong></p>
-              <input type="text" placeholder="Endereço completo" required><br><br>
-              
-              <p><strong>E-mail:</strong></p>
-              <input type="email" placeholder="Digite seu e-mail" required><br><br>
-              
-              <p><strong>Telefone:</strong></p>
-              <input type="text" placeholder="+55 (12) 34567-8900" required><br><br>
-
-              <form action="/enviar" method="POST">
-              <div>
-                <!-- Caixa de seleção obrigatória -->
-                <input type="checkbox" id="aceite-termos" name="termos" required>
-                
-                <label for="aceite-termos">
-                  Desejo receber alertas locais de animais de estimação encontrados e perdidos</label>
-                <br><br> 
-              </div>
-            </color>
-            <button type="submit" style="background-color: #33BEB6; color: white; border: none; padding: 10px 20px; cursor: pointer; border-radius: 5px;">Continuar</button>
-          </form>
-          <img src="img/imgCGcadastro.png">
-        </details>
-      </div>
-
-      <!--====FICHA====-->
-
-      <div class="ficha">
-
-        <h2 style="color: #fd8128"><strong>Crie seu anúncio para buscas.</h2></strong>
-        <p>Insira informações do animal para começarmos a instantaneamente a espalhar o anúncio por sua comunidade.</p>
-
-        <div class="Situação">
-          <h3>Situação</h3>
-          <form>
-            <select name="Situação" id="situação">
-              <option value="Procurando pet">Procurando pet</option>
-              <hr>
-              <option value="Procurando tutor">Procurando tutor</option>
-              <hr>
-              <option value="Para adoção">Para adoção</option>
-            </select>
-          </form>
-        <!--===================================-->
-        <div class="Peculiaridade">
-          <h3>Peculiaridade</h3>
-          <form>
-            <label for="peculiaridade">Peculiaridade:</label>
-            <input type 
-            
-          </form>
-        </div>
-    </section>
-<!--=====TESTE PERFIL e ficha====-->
-
-
-    <!-- ===== HERO (PRIMEIRA TELA) ===== -->
-    <main class="hero">
+    <!-- ===== HERO ===== -->
+    <section class="hero">
       <div class="hero-texto">
         <h1>Ajudando você a encontrar seu amigo de quatro patas</h1>
         <p class="subtitulo">Em todo o Brasil a procura e resgate dos nossos companheiros peludos</p>
-
         <div class="botoes">
-          <a href="#perdi" class="btn btn-perdi" id="perdi">Perdi meu Pet</a>
-          <a href="#encontrei" class="btn btn-encontrei" id="encontrei">Encontrei um pet </a>
+          <a href="#perdi" class="btn btn-perdi">Perdi meu pet</a>
+          <a href="#encontrei" class="btn btn-encontrei">Encontrei um pet</a>
         </div>
       </div>
-
       <div class="hero-imagem">
-        <div class="sobreposicao">
-          <img src="img/Pegadas+mocaecao.png" alt="Mulher sorrindo abraçando um cachorro" class="imagem-base">
-          <img src="img/logo-mapet.png" alt="" class="imagem-sobre">
-        </div>
+        <img src="img/Pegadas+mocaecao.png" alt="Mulher sorrindo abraçando um cachorro">
       </div>
-    </main>
+    </section>
 
     <!-- ===== SOBRE ===== -->
-    <div class="Sobre-mapa">
-      <h2>Conheça o MapaPet</h2>
-      <br>
-      <p class="paragrafo-mapa">Desde 2018 ajudando tutores a encontrarem seus pequenos companheiros, o MapaPet tem como objetivo encontrar animais perdidos e abandonados e proporcionar a eles um lar digno.
-        Por meio de publicações e divulgações da nossa Instituição e comunidade podemos fazer a diferença a esses animais. Mais do que uma ONG, somos uma família em busca de transformar vidas com nosso trabalho impulsionado por cada usuário.</p>
+    <section class="sobre" id="sobre">
+      <div class="sobre-imagem">
+        <img src="img/Pegadas+caoegato.png" alt="Cachorro ao lado de um gato">
+      </div>
+      <div class="sobre-texto">
+        <h2>Conheça o MapaPet</h2>
+        <p>Desde 2018 ajudando tutores a encontrarem seus pequenos companheiros, o MapaPet tem como objetivo encontrar animais perdidos e abandonados e proporcionar a eles um lar digno.</p>
+        <p>Por meio de publicações e divulgações da nossa instituição e comunidade podemos fazer a diferença a esses animais. Mais do que uma ONG, somos uma família em busca de transformar vidas com nosso trabalho impulsionado por cada usuário.</p>
+      </div>
+      <img src="img/gatocurioso.png" alt="Gato preto curioso" class="sobre-gato">
+    </section>
 
-      <div class="historiaMapa">
-        <div class="sobreposicao">
-          <img src="img/Pegadas+caoegato.png" alt="cachorro ao lado de um gato" class="imagem-base">
-          <img src="img/gatocurioso.png" alt="Gato curioso" class="imagem-sobre">
-          <img src="img/logo-mapet.png" alt="" class="imagem-sobre">
+    <!-- ===== PETS DIVULGADOS ===== -->
+    <section class="divulgados" id="divulgados">
+      <div class="divulgados-topo">
+        <h2>Pets divulgados</h2>
+        <a href="animais.html" class="ver-mais">Ver mais</a>
+      </div>
+
+      <div class="swiper carrossel">
+        <div class="swiper-wrapper">
+
+          <article class="swiper-slide card-pet">
+            <strong class="card-status">Desaparecido</strong>
+            <img src="img/ft juninho.png" alt="Foto de um cachorro">
+            <div class="card-info">
+              <div class="card-nome">
+                <h3>Juninho</h3>
+                <img src="img/simb male.png" alt="Macho" class="card-genero">
+              </div>
+              <p>Raça: Shih Tzu</p>
+              <p>Cor: caramelo</p>
+              <p>Visto por último em: Guarulhos - SP</p>
+              <time class="card-tempo">12 horas atrás</time>
+            </div>
+          </article>
+
+          <article class="swiper-slide card-pet">
+            <strong class="card-status">Procurando tutor</strong>
+            <img src="img/ft paçoca.png" alt="Foto de um cachorro">
+            <div class="card-info">
+              <div class="card-nome">
+                <h3>Paçoca</h3>
+                <img src="img/simb female.png" alt="Fêmea" class="card-genero">
+              </div>
+              <p>Raça: maltês</p>
+              <p>Cor: preto e branco</p>
+              <p>Visto por último em: próximo ao parque Ibirapuera</p>
+              <time class="card-tempo">1 dia atrás</time>
+            </div>
+          </article>
+
+          <article class="swiper-slide card-pet">
+            <strong class="card-status">Desaparecida</strong>
+            <img src="img/ft luna.png" alt="Foto de um gato">
+            <div class="card-info">
+              <div class="card-nome">
+                <h3>Luna</h3>
+                <img src="img/simb female.png" alt="Fêmea" class="card-genero">
+              </div>
+              <p>Raça: Persa Himalaio</p>
+              <p>Cor: branca</p>
+              <p>Visto por último em: Mercado Central - BH</p>
+              <time class="card-tempo">4 dias atrás</time>
+            </div>
+          </article>
+
+          <article class="swiper-slide card-pet">
+            <strong class="card-status">Procurando tutor</strong>
+            <img src="img/ft fuça.png" alt="Foto de um cachorro">
+            <div class="card-info">
+              <div class="card-nome">
+                <h3>Fuça</h3>
+                <img src="img/simb male.png" alt="Macho" class="card-genero">
+              </div>
+              <p>Raça: Vira-lata</p>
+              <p>Cor: caramelo</p>
+              <p>Visto por último em: Itaquera - SP</p>
+              <time class="card-tempo">12 horas atrás</time>
+            </div>
+          </article>
+
+          <article class="swiper-slide card-pet">
+            <strong class="card-status">Desaparecido</strong>
+            <img src="img/ft flocos.png" alt="Foto de um cachorro">
+            <div class="card-info">
+              <div class="card-nome">
+                <h3>Flocos</h3>
+                <img src="img/simb male.png" alt="Macho" class="card-genero">
+              </div>
+              <p>Raça: Vira-lata</p>
+              <p>Cor: preto e branco</p>
+              <p>Visto por último em: Belo Horizonte - MG</p>
+              <time class="card-tempo">1 dia atrás</time>
+            </div>
+          </article>
+
+          <article class="swiper-slide card-pet">
+            <strong class="card-status">Procurando tutor</strong>
+            <img src="img/ft pretinha.png" alt="Foto de um cachorro">
+            <div class="card-info">
+              <div class="card-nome">
+                <h3>Pretinha</h3>
+                <img src="img/simb female.png" alt="Fêmea" class="card-genero">
+              </div>
+              <p>Raça: Vira-lata</p>
+              <p>Cor: preta</p>
+              <p>Visto por último em: Parque Ibirapuera</p>
+              <time class="card-tempo">3 horas atrás</time>
+            </div>
+          </article>
+
+          <article class="swiper-slide card-pet">
+            <strong class="card-status">Desaparecida</strong>
+            <img src="img/ft mila.png" alt="Foto de um cachorro">
+            <div class="card-info">
+              <div class="card-nome">
+                <h3>Mila</h3>
+                <img src="img/simb female.png" alt="Fêmea" class="card-genero">
+              </div>
+              <p>Raça: Border Collie</p>
+              <p>Cor: branca e marrom</p>
+              <p>Visto por último em: São Paulo - SP</p>
+              <time class="card-tempo">1 hora atrás</time>
+            </div>
+          </article>
+
+          <article class="swiper-slide card-pet">
+            <strong class="card-status">Desaparecido</strong>
+            <img src="img/ft romeu.png" alt="Foto de um gato">
+            <div class="card-info">
+              <div class="card-nome">
+                <h3>Romeu</h3>
+                <img src="img/simb male.png" alt="Macho" class="card-genero">
+              </div>
+              <p>Raça: Vira-lata</p>
+              <p>Cor: tigrado</p>
+              <p>Visto por último em: Fortaleza - CE</p>
+              <time class="card-tempo">3 dias atrás</time>
+            </div>
+          </article>
+
+          <article class="swiper-slide card-pet">
+            <strong class="card-status">Desaparecido</strong>
+            <img src="img/ft pedro.png" alt="Foto de um gato">
+            <div class="card-info">
+              <div class="card-nome">
+                <h3>Pedro</h3>
+                <img src="img/simb male.png" alt="Macho" class="card-genero">
+              </div>
+              <p>Raça: Vira-lata</p>
+              <p>Cor: cinza e branco</p>
+              <p>Visto por último em: Guarulhos - SP</p>
+              <time class="card-tempo">2 dias atrás</time>
+            </div>
+          </article>
+
+          <article class="swiper-slide card-pet">
+            <strong class="card-status">Desaparecida</strong>
+            <img src="img/ft bibi.png" alt="Foto de um gato">
+            <div class="card-info">
+              <div class="card-nome">
+                <h3>Bibi</h3>
+                <img src="img/simb female.png" alt="Fêmea" class="card-genero">
+              </div>
+              <p>Raça: Vira-lata</p>
+              <p>Cor: tricolor</p>
+              <p>Visto por último em: Alter do Chão - PA</p>
+              <time class="card-tempo">12 horas atrás</time>
+            </div>
+          </article>
+
+          <article class="swiper-slide card-pet">
+            <strong class="card-status">Desaparecido</strong>
+            <img src="img/ft nego.png" alt="Foto de um cachorro">
+            <div class="card-info">
+              <div class="card-nome">
+                <h3>Nego</h3>
+                <img src="img/simb male.png" alt="Macho" class="card-genero">
+              </div>
+              <p>Raça: Indefinida</p>
+              <p>Cor: preto e branco</p>
+              <p>Visto por último em: Bonito - MS</p>
+              <time class="card-tempo">12 horas atrás</time>
+            </div>
+          </article>
+
+          <article class="swiper-slide card-pet">
+            <strong class="card-status">Desaparecido</strong>
+            <img src="img/ft juninho (1).png" alt="Foto de um cachorro">
+            <div class="card-info">
+              <div class="card-nome">
+                <h3>Juninho</h3>
+                <img src="img/simb male.png" alt="Macho" class="card-genero">
+              </div>
+              <p>Raça: Vira-lata</p>
+              <p>Cor: caramelo</p>
+              <p>Visto por último em: Jericoacoara - CE</p>
+              <time class="card-tempo">12 horas atrás</time>
+            </div>
+          </article>
+
+          <article class="swiper-slide card-pet">
+            <strong class="card-status">Desaparecida</strong>
+            <img src="img/ft branca.png" alt="Foto de um gato">
+            <div class="card-info">
+              <div class="card-nome">
+                <h3>Branca</h3>
+                <img src="img/simb female.png" alt="Fêmea" class="card-genero">
+              </div>
+              <p>Raça: Indefinida</p>
+              <p>Cor: branca</p>
+              <p>Visto por último em: Chapada Diamantina - BA</p>
+              <time class="card-tempo">12 horas atrás</time>
+            </div>
+          </article>
+
+
         </div>
       </div>
-    </div>
 
-
-
-  <div class="swiper carrossel">
-
-        <!-- cartões -->
-        <div class="swiper-wrapper">
-            <!--===============================================-->
-            <div class="swiper-slide"><strong>Desaparecido</strong>
-              <img src="img/ft juninho.png" alt="Foto de um cachorro">
-              <h3>Juninho</h3>
-              <p>Raça: Shih Tzu
-                Cor: caramelo
-                Visto por último em: Guarulhos - SP</p>
-                <img src="img/simb male.png" alt="Símbolo de gênero masculino">
-              <p><strong>12 horas atrás</strong></p>
-            </div>
-            <!--===============================================-->
-            <div class="swiper-slide"><strong>Procurando tutor</strong>
-              <img src="img/ft paçoca.png" alt="Foto de um cachorro">
-              <h3>Paçoca</h3>
-              <p>Raça: maltese
-                Cor: preto e branco
-                Visto por último em: próximo ao parque Ibirapuera... </p>
-              <img src="img/simb female.png" alt="Símbolo de gênero feminino">
-              <p><strong>1 dia atrás</strong></p>
-            </div>
-            <!--===============================================-->
-            <div class="swiper-slide"><strong>Desaparecido</strong>
-              <img src="img/ft luna.png" alt="Foto de um gato">
-              <h3>Luna</h3>
-              <p>Raça: Persa Himalaio
-                Cor: Branca
-                Visto por último em: Mercado Central - BH </p>
-              <img src="img/simb female.png" alt="Símbolo de gênero feminino">
-              <p><strong>4 dias atrás</strong></p>
-            </div>
-            <!--===============================================-->
-            <div class="swiper-slide"><strong>Procurando tutor</strong>
-              <img src="img/ft fuça.png" alt="Foto de um cachorro">
-              <h3>Fuça</h3>
-              <p>Raça: Viralata 
-                Cor: caramelo
-                Visto por último em: Itaquera  - SP</p>
-              <img src="img/simb male.png" alt="Símbolo de gênero masculino">
-              <p><strong>12 horas atrás</strong></p>
-            </div>
-            <!--===============================================-->
-            <div class="swiper-slide"><strong>Desaparecido</strong>
-              <img src="img/ft flocos.png" alt="Foto de um cachorro">
-              <h3>Flocos</h3>
-              <p>Raça: Vira-lata
-                Cor: Preto e branco 
-                Visto por último em: Belo Horizonte - MG</p>
-              <img src="img/simb male.png" alt="Símbolo de gênero masculino">
-              <p><strong>1 dia atrás</strong></p>
-            </div>
-            <!--===============================================-->
-            <div class="swiper-slide"><strong>Procurando tutor</strong>
-              <img src="img/ft pretinha.png" alt="Foto de um cachorro">
-              <h3>Pretinha</h3>
-              <p>Raça: Viralata 
-                Cor: Preto
-                Visto por último em: Parque Ibirapuera</p>
-              <img src="img/simb female.png" alt="Símbolo de gênero feminino">
-              <p><strong>03 horas atrás</strong></p>
-            </div>
-            <!--===============================================-->
-            <div class="swiper-slide"><strong>Desaparecido</strong>
-              <img src="img/ft mila.png" alt="Foto de um cachorro">
-              <h3>Mila</h3>
-              <p>Raça: Border Collie
-                Cor: Branco e marrom           
-                Visto por último em: São Paulo - SP</p>
-              <img src="img/simb female.png" alt="Símbolo de gênero feminino">
-              <p><strong>01 horas atrás</strong></p>
-            </div>
-            <!--===============================================-->
-            <div class="swiper-slide"><strong>Desaparecido</strong>
-              <img src="img/ft romeu.png" alt="Foto de um gato">
-              <h3>Romeu</h3>
-              <p>Raça: Viralata
-                Cor: Tigrado
-                Visto por último em: Fortaleza - CE</p>
-              <img src="img/simb male.png" alt="Símbolo de gênero masculino">
-              <p><strong>3 dias atrás</strong></p>
-            </div>
-            <!--===============================================-->
-            <div class="swiper-slide"><strong>Desaparecido</strong>
-              <img src="img/ft pedro.png" alt="Foto de um gato">
-              <h3>Pedro</h3>
-              <p>Raça: Viralata
-                Cor: Cinza e branco
-                Visto por último em: Guarulhos - SP</p>
-              <img src="img/simb male.png" alt="Símbolo de gênero masculino">
-              <p><strong>2 dias atrás</strong></p>
-            </div>
-            <!--===============================================-->
-            <div class="swiper-slide"><strong>Desaparecido</strong>
-              <img src="img/ft bibi.png" alt="Foto de um gato">
-              <h3>Bibi</h3>
-              <p>Raça: Viralata
-                Cor: Tricolor             
-                Visto por último em: Alter do chão - PA </p>
-              <img src="img/simb female.png" alt="Símbolo de gênero feminino">
-              <p><strong>12 horas atrás</strong></p>
-            </div>
-            <!--===============================================-->
-            <div class="swiper-slide"><strong>Desaparecido</strong>
-              <img src="img/ft nego.png" alt="Foto de um cachorro">
-              <h3>Nego</h3>
-              <p>Raça: Indefinida
-                Cor: Preto e branco
-                Visto por último em: Bonito - MS</p>
-              <img src="img/simb male.png" alt="Símbolo de gênero masculino">
-              <p><strong>12 horas atrás</strong></p>
-            </div>
-            <!--===============================================-->
-            <div class="swiper-slide"><strong>Desaparecido</strong>
-              <img src="img/ft juninho (1).png" alt="Foto de um cachorro">
-              <h3>Juninho</h3>
-              <p>Raça: Viralata
-                Cor: caramelo
-                Visto por último em: Jericoacoara - CE </p>
-              <img src="img/simb male.png" alt="Símbolo de gênero masculino">
-              <p><strong>12 horas atrás</strong></p>
-            </div>
-            <!--===============================================-->
-            <div class="swiper-slide"><strong>Desaparecido</strong>
-              <img src="img/ft branca.png" alt="Foto de um gato">
-              <h3>Branca</h3>
-              <p>Raça: Indefinida
-                Cor: Branco
-                Visto por último em: Chapada Diamantina - BA</p>
-              <img src="img/simb female.png" alt="Símbolo de gênero feminino">
-              <p><strong>12 horas atrás</strong></p>
-            </div>
-
-
-
-        </div>
-
-        <!-- Navegação -->
-        <div class="navegacao">
-            <button class="anterior">←</button>
-            <div class="paginacao"></div>
-            <button class="proximo">→</button>
-        </div>
-
-    </div>
-
+      <div class="navegacao">
+        <button class="anterior" aria-label="Anterior">←</button>
+        <div class="paginacao"></div>
+        <button class="proximo" aria-label="Próximo">→</button>
+      </div>
+    </section>
 
     <!-- ===== ESTATÍSTICAS ===== -->
-    <section class="--Estatisticas">
-      <img src="img/icone tutor.png" alt="">
-      <h2>+5M</h2>
-      <p>Tutores conectados</p>
+    <section class="estatisticas" aria-label="Números do MapaPet">
+      <div class="estatisticas-caixa">
+        <div class="numeros">
+          <div class="numero">
+            <span class="numero-icone"><img src="img/icone tutor.png" alt=""></span>
+            <strong>+5M</strong>
+            <p>Tutores conectados</p>
+          </div>
+          <div class="numero numero-destaque">
+            <span class="numero-icone"><img src="img/icone encontrados.png" alt=""></span>
+            <strong>+8.500</strong>
+            <p>Pets encontrados</p>
+          </div>
+          <div class="numero">
+            <span class="numero-icone"><img src="img/icone recuperação.png" alt=""></span>
+            <strong>92%</strong>
+            <p>recuperação nas primeiras 72 horas</p>
+          </div>
+        </div>
 
-      <img src="img/icone encontrados.png" alt="">
-      <h2>+8.500</h2>
-      <p>Pets encontrados</p>
-
-      <img src="img/icone recuperação.png" alt="">
-      <h2>92%</h2>
-      <p>Recuperação nas primeiras 72 horas</p>
-
-      <div>
-        <p>Publique o anúncio gratuitamente</p>
-        <p>Notificações em um raio de 30 km</p>
-
-        <p>Aumento do alcance</p>
-        <p>Ampliação da busca para 100 km após 25 horas</p>
-
-        <p>Seu animal de estimação foi encontrado</p>
-        <p>Mais de 8.000 famílias ajudadas</p>
+        <ol class="passos">
+          <li>
+            <h3>Publique o anúncio gratuitamente</h3>
+            <p>Notificações em um raio de 30 km.</p>
+          </li>
+          <li>
+            <h3>Aumento do alcance</h3>
+            <p>Ampliação da busca para 100 km após 25 horas.</p>
+          </li>
+          <li>
+            <h3>Seu animal de estimação foi encontrado</h3>
+            <p>Mais de 8.000 famílias ajudadas.</p>
+          </li>
+        </ol>
       </div>
     </section>
 
     <!-- ===== COMENTÁRIOS ===== -->
-    <section>
-      <h2>Veja a opnião dos nossos usuários e venha fazer parte dessa família!</h2>
+    <section class="comentarios">
+      <h2>Veja a opinião dos nossos usuários e venha fazer parte dessa família!</h2>
 
-      <div class="cmt cmt-1">
-        <img src="img/Ellipse 15.png" alt="foto de um gato">
-        <h2>Ruffus</h2>
-        <h3>Maria</h3>
-        <p>São Paulo - SP</p>
-        <h3>Só tenho a agradecer! Um milhão de obrigados!!</h3>
-        <p>Reencontrado</p>
-      </div>
+      <div class="comentarios-lista">
+        <article class="cmt cmt-1">
+          <img src="img/Ellipse 15.png" alt="Foto do gato Ruffus" class="cmt-foto">
+          <h3 class="cmt-pet">Ruffus</h3>
+          <p class="cmt-tutor"><strong>Maria</strong> <span class="estrelas" aria-label="5 estrelas">★★★★★</span></p>
+          <p class="cmt-local">São Paulo - SP</p>
+          <p class="cmt-texto">Só tenho a agradecer! Um milhão de obrigados!!</p>
+          <span class="cmt-tag">Reencontrado</span>
+        </article>
 
-      <div class="cmt cmt-2">
-        <img src="img/Ellipse cachorro2.png" alt="foto de um cachorro pitbull">
-        <h2>Mia</h2>
-        <h3>Samantha</h3>
-        <p>Belo Horizonte - MG</p>
-        <h3>Mia foi encontrada á 10km de casa e muito bem cuidada!! Sou muito grata ao mapapet e a todos que ajudaram esse reencontro se tornar realidade!</h3>
-        <p>Reencontrado</p>
-      </div>
+        <article class="cmt cmt-2">
+          <img src="img/Ellipse cachorro2.png" alt="Foto da cachorra Mia" class="cmt-foto">
+          <h3 class="cmt-pet">Mia</h3>
+          <p class="cmt-tutor"><strong>Samantha</strong> <span class="estrelas" aria-label="5 estrelas">★★★★★</span></p>
+          <p class="cmt-local">Belo Horizonte - MG</p>
+          <p class="cmt-texto">Mia foi encontrada à 10 km de casa e muito bem cuidada!! Sou muito grata ao MapaPet e a todos que ajudaram esse reencontro se tornar realidade!</p>
+          <span class="cmt-tag">Reencontrado</span>
+        </article>
 
-      <div class="cmt cmt-3">
-        <img src="img/Ellipse cachorro3.png" alt="foto de um cachorro vira-lata">
-        <h2>Thor</h2>
-        <h3>Mario</h3>
-        <p>Belo Horizonte - MG</p>
-        <h3>Gratidão!! Fiz até uma doação ao site para ajudar outras pessoas a reencontrarem seus amores de quatro patas assim como reencontrei o thorzinho!!</h3>
-        <p>Reencontrado</p>
+        <article class="cmt cmt-3">
+          <img src="img/Ellipse cachorro3.png" alt="Foto do cachorro Thor" class="cmt-foto">
+          <h3 class="cmt-pet">Thor</h3>
+          <p class="cmt-tutor"><strong>Mario</strong> <span class="estrelas" aria-label="5 estrelas">★★★★★</span></p>
+          <p class="cmt-local">Belo Horizonte - MG</p>
+          <p class="cmt-texto">Gratidão!! Fiz até uma doação ao site para ajudar outras pessoas a reencontrarem seus amores de quatro patas assim como reencontrei o Thorzinho!!</p>
+          <span class="cmt-tag">Reencontrado</span>
+        </article>
       </div>
     </section>
 
     <!-- ===== PATROCINADORES ===== -->
-    <section class="Patrocinadores">
-      <img src="img/mdi_charity.png" alt="">
-      <h2>Patrocinadores</h2>
+    <section class="patrocinadores" id="patrocinadores">
+      <div class="patrocinadores-caixa">
+        <header class="patrocinadores-topo">
+          <img src="img/mdi_charity.png" alt="">
+          <h2>Patrocinadores</h2>
+        </header>
 
-      <!-- TEM Q FAZER O PNG DE ALGUMAS, FAÇO DPS -->
-      <div class="patrocinadores-logos">
-        <img src="img/11-3 1.png" alt="serasa">
-        <img src="img/10-3 1.png" alt="oracle">
-        <img src="img/12-3 1.png" alt="carrefour">
-        <img src="img/2-6 1.png" alt="casas bahia">
-        <img src="img/24-2 1.png" alt="itau">
-        <img src="img/23-2 1 (1).png" alt="localiza">
-        <img src="img/Sem título 1.png" alt="proa">
-        <img src="img/33-2 1.png" alt="anbima">
+        <div class="patrocinadores-logos">
+          <img src="img/11-3 1.png" alt="Serasa Experian">
+          <img src="img/10-3 1.png" alt="Oracle">
+          <img src="img/12-3 1.png" alt="Carrefour">
+          <img src="img/2-6 1.png" alt="Fundação Casas Bahia">
+          <img src="img/24-2 1.png" alt="Itaú Educação e Trabalho">
+          <img src="img/23-2 1 (1).png" alt="Instituto Localiza">
+          <img src="img/Sem título 1.png" alt="Proa">
+          <img src="img/33-2 1.png" alt="Anbima">
+        </div>
+
+        <a href="#" class="btn-patrocinador">Seja um patrocinador</a>
       </div>
-      <p>SEJA UM PATROCINADOR</p>
     </section>
 
     <!-- ===== DENÚNCIA ===== -->
-    <section class="denuncia">
-      <h3>Encontrou um animal sofrendo maus-tratos?</h3>
-      <h2>Denuncie!</h2>
-      <h3>VOCE PODE SALVAR VIDAS.
-        Animais maltratados merecem justiça, e quem os maltrata merece a prisão.</h3>
-      <h3>Ligue para o Disque-Denúncia (181).</h3>
-      <p>As denuncias serão 100% anonimas.</p>
-      <p>Lei de Crimes Ambientais (Lei nº 9.605/1998)</p>
-      <img src="img/animaismaltratadosbaesp3-removebg-preview 1.png" alt="Gato em situação de denúncia">
+    <section class="denuncia" id="denuncia">
+      <p class="denuncia-pergunta">Encontrou um animal sofrendo maus-tratos?</p>
+      <div class="denuncia-conteudo">
+        <h2><span aria-hidden="true">⚠</span> Denuncie!</h2>
+        <p class="denuncia-destaque"><strong>VOCÊ PODE SALVAR VIDAS.</strong><br>Animais maltratados merecem justiça, e quem os maltrata merece a prisão.</p>
+        <p class="denuncia-telefone">Ligue para o Disque-Denúncia (181).</p>
+        <p class="denuncia-nota">As denúncias serão 100% anônimas.</p>
+        <p class="denuncia-lei">Lei de Crimes Ambientais (<a href="#">Lei nº 9.605/1998</a>)</p>
+      </div>
+      <img src="img/animaismaltratadosbaesp3-removebg-preview 1.png" alt="Gato com ferimentos no rosto" class="denuncia-img">
     </section>
 
-    <!-- ===== RODAPÉ ===== -->
-    
-      <footer>
+  </main>
 
- <footer>
-  <img class="logo-rodape" src="img/icone-pet.png" alt="Ícone MapaPet">
+  <!-- ===== RODAPÉ ===== -->
+  <footer class="footer">
+    <div class="footer-topo">
+      <a href="index.html"><img class="logo-rodape" src="img/logomapapet .png" alt="MapaPet"></a>
 
-  <div class="redes-sociais">
-    <h3>Sigas nossas redes sociais:</h3>
-    <div class="icones">
-      <img src="img/Group.png" alt="Instagram">
-      <img src="img/proicons_tiktok.png" alt="TikTok">
-      <img src="img/ant-design_youtube-outlined (1).png" alt="YouTube">
-      <img src="img/basil_facebook-outline (1).png" alt="Facebook">
+      <div class="redes-sociais">
+        <h3>Siga nossas redes sociais:</h3>
+        <div class="icones">
+          <a href="#" aria-label="Instagram"><img src="img/Group.png" alt=""></a>
+          <a href="#" aria-label="TikTok"><img src="img/proicons_tiktok.png" alt=""></a>
+          <a href="#" aria-label="YouTube"><img src="img/ant-design_youtube-outlined (1).png" alt=""></a>
+          <a href="#" aria-label="Facebook"><img src="img/basil_facebook-outline (1).png" alt=""></a>
+        </div>
+      </div>
     </div>
-  </div>
 
-  <img class="gato-rodape" src="img/streamline-memes_pop-cat-hand-drawn.png" alt="">
+    <nav class="menu-rodape" aria-label="Rodapé">
+      <a href="index.html">Menu</a>
+      <a href="#sobre">Sobre nós</a>
+      <a href="#divulgados">Divulgados</a>
+      <a href="#denuncia">Denúncia</a>
+      <a href="#patrocinadores">Patrocinadores</a>
+    </nav>
 
-  <div class="menu-rodape">
-    <p>Menu</p>
-    <p>Sobre nós</p>
-    <p>Divulgados</p>
-    <p>Denuncia</p>
-    <p>Patrocinadores</p>
-  </div>
-
-
-</footer>
-  </div>
-
-  
-
-  
-
-  
-</footer>
-    </section>
     <p class="copyright">Copyright © 2026 MapaPet - Todos os direitos reservados</p>
-      <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="https://kit.fontawesome.com/ae60c296d8.js" crossorigin="anonymous"></script>
-    <script src="script.js" defer></script>
-  </body>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://kit.fontawesome.com/ae60c296d8.js" crossorigin="anonymous"></script>
+  <script src="script.js" defer></script>
+  <script src="anuncio.js" defer></script>
+</body>
 </html>

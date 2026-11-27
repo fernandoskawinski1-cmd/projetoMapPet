@@ -1,0 +1,111 @@
+/* Bloco flutuante do anúncio (usa as variáveis do style.css) */
+
+body:has(dialog.anuncio[open]) { overflow: hidden; }   /* trava a rolagem da página ao fundo */
+
+dialog.anuncio {
+  position: fixed; inset: 0; margin: auto;
+  width: min(92vw, 440px); max-height: 92vh; overflow: auto;
+  padding: 0;
+  border: 6px solid var(--teal-escuro); border-radius: 18px;
+  box-shadow: inset 0 0 0 5px var(--teal), 0 10px 40px rgba(0,0,0,.45);
+  background: var(--amarelo) url("img/Textura2.png") center / cover;
+  color: var(--teal-escuro);
+  font-family: 'Fredoka', 'Segoe UI', Arial, sans-serif;
+}
+dialog.anuncio::backdrop { background: rgba(0,0,0,.55); }
+dialog.anuncio[open] { animation: anuncio-entra .2s ease; }
+@keyframes anuncio-entra { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+
+.anuncio-fechar {
+  position: absolute; top: 12px; right: 16px; z-index: 3;
+  background: none; border: 0; cursor: pointer;
+  font: inherit; font-size: 1.5rem; line-height: 1; color: var(--teal-escuro);
+  padding: 4px 8px;
+}
+.anuncio-fechar:hover { color: var(--laranja-escuro); }
+.anuncio-fechar:focus-visible { outline: 3px solid var(--teal-escuro); border-radius: 4px; }
+
+/* ===== Elementos comuns às duas etapas ===== */
+.passo { position: relative; padding: 28px 26px 26px; }
+.passo[hidden] { display: none; }
+.passo h2 { font-size: 1.7rem; font-weight: 700; line-height: 1.15; padding-right: 30px; }
+.passo-sub { margin: 10px 0 14px; font-size: 1.05rem; font-weight: 600; color: #1A8F88; }
+.passo-sub-escuro { font-size: .9rem; font-weight: 500; color: var(--teal-escuro); }
+
+.passo label { display: block; font-weight: 700; margin: 12px 0 4px; font-size: 1.05rem; }
+
+.passo input[type="text"], .passo input[type="email"], .passo input[type="tel"],
+.passo select, .passo textarea {
+  width: 100%; border: 0; border-radius: 8px;
+  background: #FFF1B8; color: var(--teal-escuro);
+  padding: 8px 10px; font-family: inherit; font-size: .8rem;
+}
+.passo ::placeholder { color: #6b6b5a; opacity: 1; }
+.passo input:focus-visible, .passo select:focus-visible, .passo textarea:focus-visible {
+  outline: 3px solid var(--teal); outline-offset: 1px;
+}
+
+.anuncio-btn {
+  margin-top: 22px; padding: 6px 14px;
+  background: var(--teal); color: var(--branco);
+  border: 2px solid var(--teal-escuro); border-radius: 8px;
+  font-family: inherit; font-size: 1.15rem; font-weight: 700; cursor: pointer;
+  position: relative; z-index: 2;
+}
+.anuncio-btn:hover { background: #2aa8a0; }
+.anuncio-btn:focus-visible { outline: 3px solid var(--teal-escuro); outline-offset: 2px; }
+
+/* ===== Etapa 1: coluna de bichinhos espiando à direita ===== */
+.passo-1 { padding-right: 110px; min-height: 410px; }
+.bichos {
+  position: absolute; top: 60px; right: 0; bottom: 20px; width: 100px;
+  background: url("img/imgCGcadastro.png") right center / contain no-repeat;  /* troque se o arquivo tiver outro nome */
+  pointer-events: none;
+}
+
+/* ===== Etapa 2 ===== */
+.passo-2 { padding-bottom: 30px; }
+.grade { display: grid; grid-template-columns: 1fr 1fr; gap: 0 18px; }
+.passo-2 label { font-size: 1rem; margin-top: 10px; }
+.passo-2 textarea { resize: none; background: #E7E3D3; }
+.rotulo-foto { margin-top: 14px !important; }
+
+.foto-caixa {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 8px; min-height: 150px; padding: 10px; overflow: hidden; cursor: pointer;
+  background: #E7E3D3; border-radius: 8px;
+  font-weight: 400 !important; text-align: center;
+}
+.foto-caixa:hover { background: #dedaca; }
+.foto-dica { font-size: .65rem; font-style: italic; color: #555; }
+.foto-icone { width: 70px; height: 70px; color: #666; }
+.foto-previa { width: 100%; height: 130px; object-fit: cover; border-radius: 6px; }
+.so-leitor { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+.foto-caixa:focus-within { outline: 3px solid var(--teal); }
+
+.passo .alertas {
+  display: flex; gap: 10px; align-items: flex-start;
+  margin: 16px 0 0; padding-right: 110px;
+  font-size: .85rem; font-weight: 500; position: relative; z-index: 2;
+}
+.alertas input { flex: none; width: 20px; height: 20px; margin-top: 2px; accent-color: var(--teal-escuro); }
+
+.detetive {
+  position: absolute; right: 4px; bottom: 0; width: 150px; height: 130px;
+  background: url("img/cachorro-detetive.png") right bottom / contain no-repeat;  /* troque pelo nome do seu arquivo */
+  pointer-events: none;
+}
+
+/* ===== Celular ===== */
+@media (max-width: 480px) {
+  .passo { padding: 24px 18px 22px; }
+  .passo-1 { padding-right: 80px; }
+  .bichos { width: 70px; }
+  .grade { grid-template-columns: 1fr; }
+  .passo .alertas { padding-right: 0; }
+  .detetive { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  dialog.anuncio[open] { animation: none; }
+}

@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Veja os pets desaparecidos, procurando tutor e para adoção no MapaPet.">
+  <title>Pets divulgados - MapaPet</title>
+  <link rel="icon" href="img/icone-pet.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="animais.css">
+  <link rel="stylesheet" href="anuncio.css">
+</head>
+<body class="pagina-animais">
+
+  <!-- ===== CABEÇALHO (igual ao da index) ===== -->
+  <header class="header" id="topo">
+    <button class="menu-btn" id="menu-btn" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <a href="index.html" class="logo" aria-label="MapPet - página inicial">
+      <img src="img/logomapapet .png" alt="MapPet" class="logo-img">
+    </a>
+
+    <div class="header-links">
+      <a href="#apoie" class="link-apoie"><i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i> Apoie</a>
+      <!-- Aqui vai redirecionar para o cadastro do anúncio -->
+      <a href="#cadastro" class="btn-header">Perdi meu pet</a>
+    </div>
+  </header>
+
+  <nav class="menu" id="menu" aria-label="Menu principal" hidden>
+    <a href="#topo">Pets divulgados</a>
+    <a href="#cadastro">Perdi meu pet</a>
+    <a href="#apoie">Apoie</a>
+  </nav>
+  <div class="menu-fundo" id="menu-fundo" hidden></div>
+
+  <main class="pagina">
+
+    <!-- ===== FILTROS ===== -->
+    <form class="filtros" aria-labelledby="titulo-filtros">
+      <h1 class="titulo-filtro" id="titulo-filtros">Filtros</h1>
+
+      <div class="campo-filtro">
+        <label for="endereco-filtro">Endereço, cidade ou CEP</label>
+        <input type="text" id="endereco-filtro" name="endereco">
+      </div>
+
+      <div class="campo-filtro">
+        <label for="nome-filtro">Nome ou ID <small>(Opcional)</small></label>
+        <input type="text" id="nome-filtro" name="nome">
+      </div>
+
+      <div class="campo-filtro">
+        <label for="raca-filtro">Raça</label>
+        <select id="raca-filtro" name="raca">
+          <option value="">Todos</option>
+          <option value="Sem raça definida">Sem raça definida (vira-lata)</option>
+          <optgroup label="Cachorros">
+            <option value="Shih Tzu">Shih Tzu</option>
+            <option value="Poodle">Poodle</option>
+            <option value="Yorkshire Terrier">Yorkshire Terrier</option>
+            <option value="Maltês">Maltês</option>
+            <option value="Spitz Alemão">Spitz Alemão</option>
+            <option value="Golden Retriever">Golden Retriever</option>
+            <option value="Labrador Retriever">Labrador Retriever</option>
+            <option value="Pastor Alemão">Pastor Alemão</option>
+            <option value="Bulldog Francês">Bulldog Francês</option>
+            <option value="Border Collie">Border Collie</option>
+          </optgroup>
+          <optgroup label="Gatos">
+            <option value="Persa">Persa</option>
+            <option value="Himalaio">Himalaio</option>
+            <option value="Siamês">Siamês</option>
+            <option value="Maine Coon">Maine Coon</option>
+            <option value="Ragdoll">Ragdoll</option>
+            <option value="Angorá">Angorá</option>
+            <option value="Bengal">Bengal</option>
+            <option value="Sphynx">Sphynx</option>
+            <option value="British Shorthair">British Shorthair</option>
+            <option value="Abissínio">Abissínio</option>
+          </optgroup>
+          <option value="Outro">Outro</option>
+        </select>
+      </div>
+
+      <div class="campo-filtro">
+        <label for="porte-filtro">Porte</label>
+        <select id="porte-filtro" name="porte">
+          <option value="">Todos</option>
+          <option value="Pequeno">Pequeno</option>
+          <option value="Médio">Médio</option>
+          <option value="Grande">Grande</option>
+        </select>
+      </div>
+
+      <div class="campo-filtro">
+        <label for="cor-filtro">Cor</label>
+        <select id="cor-filtro" name="cor">
+          <option value="">Todos</option>
+          <option value="Preto">Preto</option>
+          <option value="Branco">Branco</option>
+          <option value="Caramelo">Caramelo</option>
+          <option value="Marrom">Marrom</option>
+          <option value="Cinza">Cinza</option>
+          <option value="Creme">Creme</option>
+          <option value="Preto e branco">Preto e branco</option>
+          <option value="Branco e marrom">Branco e marrom</option>
+          <option value="Tigrado">Tigrado</option>
+          <option value="Tricolor">Tricolor</option>
+          <option value="Outro">Outro</option>
+        </select>
+      </div>
+
+      <div class="campo-filtro">
+        <label for="idade-filtro">Idade</label>
+        <select id="idade-filtro" name="idade">
+          <option value="">Todos</option>
+          <option value="Jovem">Jovem</option>
+          <option value="Adulto">Adulto</option>
+          <option value="Idoso">Idoso</option>
+        </select>
+      </div>
+
+      <div class="campo-filtro">
+        <label id="rotulo-especie">Espécie</label>
+        <div class="especies" role="group" aria-labelledby="rotulo-especie">
+          <label class="especie"><input type="checkbox" name="especie" value="cachorro"> Cachorro</label>
+          <label class="especie"><input type="checkbox" name="especie" value="gato"> Gato</label>
+        </div>
+      </div>
+
+      <button type="submit" class="btn-pesquisar">Pesquisar</button>
+    </form>
+
+    <!-- ===== CARDS ===== -->
+    <section class="lista-animais" aria-label="Pets divulgados">
+        <article class="card-animal" data-especie="cachorro">
+          <strong class="status-animal">Desaparecido</strong>
+          <img src="img/ft juninho.png" alt="Foto de um cachorro" loading="lazy">
+          <div class="card-corpo">
+            <div class="card-titulo">
+              <h2>Juninho</h2>
+              <img src="img/simb male.png" alt="Macho">
+            </div>
+            <p>Raça: Shih Tzu</p>
+            <p>Cor: caramelo</p>
+            <p>Visto por último em: Guarulhos - SP</p>
+            <div class="card-rodape">
+              <time>12 horas atrás</time>
+              <a href="#" class="mais-sobre">mais sobre</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card-animal" data-especie="cachorro">
+          <strong class="status-animal">Procurando tutor</strong>
+          <img src="img/ft paçoca.png" alt="Foto de um cachorro" loading="lazy">
+          <div class="card-corpo">
+            <div class="card-titulo">
+              <h2>Paçoca</h2>
+              <img src="img/simb female.png" alt="Fêmea">
+            </div>
+            <p>Raça: Maltês</p>
+            <p>Cor: preto e branco</p>
+            <p>Visto por último em: próximo ao parque Ibirapuera</p>
+            <div class="card-rodape">
+              <time>1 dia atrás</time>
+              <a href="#" class="mais-sobre">mais sobre</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card-animal" data-especie="gato">
+          <strong class="status-animal">Desaparecida</strong>
+          <img src="img/ft luna.png" alt="Foto de um gato" loading="lazy">
+          <div class="card-corpo">
+            <div class="card-titulo">
+              <h2>Luna</h2>
+              <img src="img/simb female.png" alt="Fêmea">
+            </div>
+            <p>Raça: Persa Himalaio</p>
+            <p>Cor: branca</p>
+            <p>Visto por último em: Mercado Central - BH</p>
+            <div class="card-rodape">
+              <time>2 dias atrás</time>
+              <a href="#" class="mais-sobre">mais sobre</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card-animal" data-especie="cachorro">
+          <strong class="status-animal">Procurando tutor</strong>
+          <img src="img/ft fuça.png" alt="Foto de um cachorro" loading="lazy">
+          <div class="card-corpo">
+            <div class="card-titulo">
+              <h2>Fuça</h2>
+              <img src="img/simb male.png" alt="Macho">
+            </div>
+            <p>Raça: Vira-lata</p>
+            <p>Cor: caramelo</p>
+            <p>Visto por último em: Itaquera - SP</p>
+            <div class="card-rodape">
+              <time>5 dias atrás</time>
+              <a href="#" class="mais-sobre">mais sobre</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card-animal" data-especie="cachorro">
+          <strong class="status-animal">Desaparecido</strong>
+          <img src="img/ft flocos.png" alt="Foto de um cachorro" loading="lazy">
+          <div class="card-corpo">
+            <div class="card-titulo">
+              <h2>Flocos</h2>
+              <img src="img/simb male.png" alt="Macho">
+            </div>
+            <p>Raça: Vira-lata</p>
+            <p>Cor: preto e branco</p>
+            <p>Visto por último em: Belo Horizonte - MG</p>
+            <div class="card-rodape">
+              <time>5 dias atrás</time>
+              <a href="#" class="mais-sobre">mais sobre</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card-animal" data-especie="cachorro">
+          <strong class="status-animal">Procurando tutor</strong>
+          <img src="img/ft pretinha.png" alt="Foto de um cachorro" loading="lazy">
+          <div class="card-corpo">
+            <div class="card-titulo">
+              <h2>Pretinha</h2>
+              <img src="img/simb female.png" alt="Fêmea">
+            </div>
+            <p>Raça: Vira-lata</p>
+            <p>Cor: preta</p>
+            <p>Visto por último em: Parque Ibirapuera</p>
+            <div class="card-rodape">
+              <time>6 dias atrás</time>
+              <a href="#" class="mais-sobre">mais sobre</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card-animal" data-especie="cachorro">
+          <strong class="status-animal">Desaparecida</strong>
+          <img src="img/ft mila.png" alt="Foto de um cachorro" loading="lazy">
+          <div class="card-corpo">
+            <div class="card-titulo">
+              <h2>Mila</h2>
+              <img src="img/simb female.png" alt="Fêmea">
+            </div>
+            <p>Raça: Border Collie</p>
+            <p>Cor: branca e marrom</p>
+            <p>Visto por último em: São Paulo - SP</p>
+            <div class="card-rodape">
+              <time>7 dias atrás</time>
+              <a href="#" class="mais-sobre">mais sobre</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card-animal" data-especie="gato">
+          <strong class="status-animal">Desaparecido</strong>
+          <img src="img/ft romeu.png" alt="Foto de um gato" loading="lazy">
+          <div class="card-corpo">
+            <div class="card-titulo">
+              <h2>Romeu</h2>
+              <img src="img/simb male.png" alt="Macho">
+            </div>
+            <p>Raça: Vira-lata</p>
+            <p>Cor: tigrado</p>
+            <p>Visto por último em: Fortaleza - CE</p>
+            <div class="card-rodape">
+              <time>9 dias atrás</time>
+              <a href="#" class="mais-sobre">mais sobre</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card-animal" data-especie="gato">
+          <strong class="status-animal">Desaparecido</strong>
+          <img src="img/ft pedro.png" alt="Foto de um gato" loading="lazy">
+          <div class="card-corpo">
+            <div class="card-titulo">
+              <h2>Pedro</h2>
+              <img src="img/simb male.png" alt="Macho">
+            </div>
+            <p>Raça: Vira-lata</p>
+            <p>Cor: cinza e branco</p>
+            <p>Visto por último em: Guarulhos - SP</p>
+            <div class="card-rodape">
+              <time>10 dias atrás</time>
+              <a href="#" class="mais-sobre">mais sobre</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card-animal" data-especie="gato">
+          <strong class="status-animal">Desaparecida</strong>
+          <img src="img/ft bibi.png" alt="Foto de um gato" loading="lazy">
+          <div class="card-corpo">
+            <div class="card-titulo">
+              <h2>Bibi</h2>
+              <img src="img/simb female.png" alt="Fêmea">
+            </div>
+            <p>Raça: Vira-lata</p>
+            <p>Cor: tricolor</p>
+            <p>Visto por último em: Alter do Chão - PA</p>
+            <div class="card-rodape">
+              <time>10 dias atrás</time>
+              <a href="#" class="mais-sobre">mais sobre</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card-animal" data-especie="cachorro">
+          <strong class="status-animal">Desaparecido</strong>
+          <img src="img/ft nego.png" alt="Foto de um cachorro" loading="lazy">
+          <div class="card-corpo">
+            <div class="card-titulo">
+              <h2>Nego</h2>
+              <img src="img/simb male.png" alt="Macho">
+            </div>
+            <p>Raça: Indefinida</p>
+            <p>Cor: preto e branco</p>
+            <p>Visto por último em: Bonito - MS</p>
+            <div class="card-rodape">
+              <time>12 dias atrás</time>
+              <a href="#" class="mais-sobre">mais sobre</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card-animal" data-especie="cachorro">
+          <strong class="status-animal">Desaparecido</strong>
+          <img src="img/ft juninho (1).png" alt="Foto de um cachorro" loading="lazy">
+          <div class="card-corpo">
+            <div class="card-titulo">
+              <h2>Juninho</h2>
+              <img src="img/simb male.png" alt="Macho">
+            </div>
+            <p>Raça: Vira-lata</p>
+            <p>Cor: caramelo</p>
+            <p>Visto por último em: Jericoacoara - CE</p>
+            <div class="card-rodape">
+              <time>14 dias atrás</time>
+              <a href="#" class="mais-sobre">mais sobre</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card-animal" data-especie="gato">
+          <strong class="status-animal">Desaparecida</strong>
+          <img src="img/ft branca.png" alt="Foto de um gato" loading="lazy">
+          <div class="card-corpo">
+            <div class="card-titulo">
+              <h2>Branca</h2>
+              <img src="img/simb female.png" alt="Fêmea">
+            </div>
+            <p>Raça: Indefinida</p>
+            <p>Cor: branca</p>
+            <p>Visto por último em: Chapada Diamantina - BA</p>
+            <div class="card-rodape">
+              <time>16 dias atrás</time>
+              <a href="#" class="mais-sobre">mais sobre</a>
+            </div>
+          </div>
+        </article>
+
+    </section>
+
+  </main>
+
+  <script src="script.js" defer></script>
+  <script src="anuncio.js" defer></script>
+  <script src="animais.js" defer></script>
+  <script src="https://kit.fontawesome.com/ae60c296d8.js" crossorigin="anonymous"></script>
+</body>
+</html>
