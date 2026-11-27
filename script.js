@@ -51,3 +51,25 @@ function atualizarSombra() {
 
 window.addEventListener('scroll', atualizarSombra);
 atualizarSombra();
+
+const carrossel = new Swiper('.carrossel', {
+
+    slidesPerView: 3,    // Exibe três cartões
+    slidesPerGroup: 3,   // Avança três cartões
+    spaceBetween: 15,   // Espaçamento entre cartões
+    speed: 500,         // Velocidade da transição
+    loop: true,         // Navegação infinita
+
+    // Indicadores circulares
+    pagination: {
+        el: '.paginacao',
+        clickable: true
+    },
+
+    // Setas de navegação
+    navigation: {
+        nextEl: '.proximo',
+        prevEl: '.anterior'
+    }
+
+});

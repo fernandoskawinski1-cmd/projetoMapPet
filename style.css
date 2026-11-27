@@ -949,3 +949,41 @@ section:has(.cmt)>h2 {
     height: 35px;
   }
 }
+
+.carrossel {
+    width: 90%;
+    max-width: 900px;
+    margin: 50px auto;
+}
+
+.swiper-slide {
+    height: 180px;
+    background: #e2e8f0;
+    border-radius: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navegacao {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.anterior,
+.proximo {
+    background: none;
+    border: none;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.paginacao {
+    display: flex;
+    gap: 5px;
+    width: auto !important;
+}
